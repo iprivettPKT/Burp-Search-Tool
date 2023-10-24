@@ -9,7 +9,7 @@ Python tool to search all the burp requests/responses for a term
 5. Save.
 
 ## Install the requirements
-1. python3 -m pip install wxPython
+python3 -m pip install wxPython
 
 ## Using the script
 1. Type Python3 burpsearch.py into the terminal.
