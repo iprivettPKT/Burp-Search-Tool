@@ -17,3 +17,5 @@ Python tool to search all the burp requests/responses for a term
 3. Type in the search term
 4. Click Start Search
 5. The program will automatically create a folder in the current directory with all the results.
+
+Please note that in the current iteration, searches are case sensitive
