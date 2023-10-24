@@ -12,10 +12,10 @@ Python tool to search all the burp requests/responses for a term
 1. python3 -m pip install wxPython
 
 ## Using the script
-1. Type Python3 burpsearch.py into the terminal
-2. Click Browse to browse to your saved burp XML file
-3. Type in the search term
-4. Click Start Search
+1. Type Python3 burpsearch.py into the terminal.
+2. Click Browse to browse to your saved burp XML file.
+3. Type in the search term.
+4. Click Start Search.
 5. The program will automatically create a folder in the current directory with all the results.
 
-Please note that in the current iteration, searches are case sensitive
+Please note that in the current iteration, searches are case-sensitive.
