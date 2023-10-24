@@ -56,10 +56,14 @@ class XMLSearchApp(wx.Frame):
 
         tree = ET.parse(path)
         root = tree.getroot()
+        main_dir = "Burp_Search_Results"
         results_dir = "results_" + term
-        os.makedirs(results_dir, exist_ok=True)
+        dir_path = str(main_dir + "/" + results_dir)
+        os.makedirs(main_dir, exist_ok=True)
+        os.makedirs(dir_path, exist_ok=True)
 
         file_counter = 0
+        matched_count = 0
 
         for item in root.findall(".//item"):
             response = item.find('response')
@@ -71,7 +75,7 @@ class XMLSearchApp(wx.Frame):
                 # Check if the search term is in the decoded response (searching within bytes)
                 if term.encode('utf-8') in decoded_response:
                     file_counter += 1
-                    file_name = f"{results_dir}/result_{file_counter}.txt"
+                    file_name = f"{main_dir}/{results_dir}/result_{file_counter}.txt"
 
                     with open(file_name, 'w', encoding='utf-8', errors='ignore') as f:
                         if request is not None and request.text is not None:
@@ -83,11 +87,11 @@ class XMLSearchApp(wx.Frame):
                         f.write("----- RESPONSE -----\n")
                         f.write(decoded_response.decode('utf-8', 'ignore') + "\n")
 
-                    print(f"Saved {results_dir}/result_{file_counter}.txt")
+                    print(f"Saved {main_dir}/{results_dir}/result_{file_counter}.txt")
                     print('-' * 50)  # Delimiter for readability
     
         # After loop, print total matches
-        print(f"Total matches: {matched_count}")
+        print(f"Total matches: {file_counter}")
 
 
 
@@ -96,3 +100,5 @@ if __name__ == '__main__':
     frm = XMLSearchApp(None, title='XML Search Tool', size=(400, 200))
     frm.Show()
     app.MainLoop()
+
+
