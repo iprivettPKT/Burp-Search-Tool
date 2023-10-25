@@ -115,8 +115,7 @@ class XMLSearchApp(wx.Frame):
         main_dir = "Burp_Search_Results"
         results_dir = "results_" + term
         dir_path = str(main_dir + "/" + results_dir + "/" + selected_file)
-        #full_path = os.path.join(results_dir, selected_file)
-
+        
         # Read and display the contents
         with open(dir_path, 'r', encoding='utf-8') as f:
             content = f.read()
