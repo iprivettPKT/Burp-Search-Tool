@@ -40,6 +40,7 @@ class XMLSearchApp(wx.Frame):
         vbox.Add(st2, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
 
         self.file_listbox = wx.ListBox(pnl, style=wx.LB_SINGLE)
+        self.file_listbox.Bind(wx.EVT_LISTBOX, self.OnOpen)
         vbox.Add(self.file_listbox, proportion=1, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
 
         self.refresh_btn = wx.Button(pnl, label='Refresh List')
